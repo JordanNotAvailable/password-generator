@@ -11,31 +11,26 @@ var count = 0
   // 1. prompt the used for password criteria
   //    a. between 8-128 character
 
-function lengthConfirmation () {
-  lengthConfirmation = prompt("How many charecters would you like, between 8 and 128 😃 ", "Answer here!");
-}
-
-// new empty array to join previous arrays to
+// open array to store pushed arrays
 var abc = []
 
 function generatePassword() {
   console.log("button clicked");
-  lengthConfirmation();
-
+   var lengthConfirmation = parseInt(window.prompt("How many charecters would you like, between 8 and 128 😃 ", "Answer here!"));
+  
   if (lengthConfirmation < 8 || lengthConfirmation > 128) {
     alert('Thats not a valid answer, try again!');
-    lengthConfirmation();
-  }
+}
 
 //    b. uppercase, lowercase, numbers or spacial characters
 
 var lowerCaseConfirmation =  confirm ("Would you like lowercase letters ? 😃 ", "Answer here!");
 
-var upperCaseConfirmation = confirm("Would you like UPPERCASE letters ? 😃 ", "Answer here!");
+var upperCaseConfirmation = confirm ("Would you like UPPERCASE letters ? 😃 ", "Answer here!");
 
-var numberConfirmation = confirm("Would you like numbers ? 😃 ", "Answer here!");
+var numberConfirmation = confirm ("Would you like numbers ? 😃 ", "Answer here!");
 
-var symbolConfirmation =  confirm("Would you like special characters ? 😃 ", "Answer here!");
+var symbolConfirmation =  confirm ("Would you like special characters ? 😃 ", "Answer here!");
 
 if (lowerCaseConfirmation === false && upperCaseConfirmation === false && numberConfirmation === false && symbolConfirmation === false) {
   alert('Thats not a valid answer, try again!');
@@ -44,7 +39,6 @@ if (lowerCaseConfirmation === false && upperCaseConfirmation === false && number
 var generatedPassword = '';
 
 // 2. validate the input
-
 
 if (lowerCaseConfirmation == true) {
   // 
@@ -68,12 +62,12 @@ if (symbolConfirmation == true) {
 }
 
 // making the abc array into a string
-abc = abc.join("")
-console.log(abc)
+var passwordstring = abc.join("")
+console.log(passwordstring)
 
 // generate the password from above criteria
 for (var i=0; i < lengthConfirmation; i++) {
-  generatedPassword += abc.charAt(Math.floor(Math.random() * abc.length));
+  generatedPassword += passwordstring.charAt(Math.floor(Math.random() * passwordstring.length));
   console.log(generatedPassword);
 }
 
