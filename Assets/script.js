@@ -20,6 +20,7 @@ function generatePassword() {
   
   if (lengthConfirmation < 8 || lengthConfirmation > 128) {
     alert('Thats not a valid answer, try again!');
+  return;
 }
 
 //    b. uppercase, lowercase, numbers or spacial characters
@@ -40,23 +41,23 @@ var generatedPassword = '';
 
 // 2. validate the input
 
-if (lowerCaseConfirmation == true) {
-  // 
+if (lowerCaseConfirmation === true) {
+  // pushing lower case into open array
   abc.push(lowerCharacters) 
   console.log(lowerCharacters)
 }
 
-if (upperCaseConfirmation == true) {
+if (upperCaseConfirmation === true) {
   // combined upper case into joined array
   abc.push(upperCharacters) 
 }
 
-if (numberConfirmation == true) {
+if (numberConfirmation === true) {
   //combined numbers into joined array
   abc.push(numbers) 
 }
 
-if (symbolConfirmation == true) {
+if (symbolConfirmation === true) {
   // combine symbols into joined array
   abc.push(symbols) 
 }
@@ -73,14 +74,14 @@ for (var i=0; i < lengthConfirmation; i++) {
 
 //display the passwod on the page
 console.log(generatedPassword);
-  return generatedPassword;
+ writePassword(generatedPassword)
 }
 
-function writePassword() {
-  var password = generatePassword();
+function writePassword(pwd) {
   var passwordText = document.querySelector("#password");
-  passwordText.value = password;
+  passwordText.value = pwd;
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
+
